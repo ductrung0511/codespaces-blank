@@ -198,10 +198,12 @@ void processGraphsFromFile(const std::string& filename, const std::string& outpu
         while (std::getline(infile, line)) {
             if (line.empty()) continue;
             size_t pos = line.find_first_not_of(" \t");
-            if (pos != std::string::npos && isdigit(line[pos])) {
+            if (pos != std::string::npos && isdigit(line[pos])) { // ưhen the line encounter a character that is not string but a digit
                 infile.seekg(-(line.length() + 1), std::ios_base::cur);
+                // We "rewind" the file stream to re-read this line in the next outer loop 
                 break;
             }
+            // Otherwise, it's an edge line like A, B, 4
 
             std::stringstream ss(line);
             std::string u_str, v_str;
@@ -233,4 +235,7 @@ int main(int argc, char* argv[]) {
 
     processGraphsFromFile(inputFile, outputFile);
     return 0;
+    // g++ 10423117.cpp -o 10423117
+    // ./10423117 tests.txt 10423117.txt
+
 }

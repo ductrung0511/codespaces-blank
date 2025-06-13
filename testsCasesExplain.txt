@@ -1,4 +1,6 @@
 9
+
+# Test Case 1: Normal graph, all nodes connected
 7
 A, 2
 B, 3
@@ -15,6 +17,8 @@ C, E, 10
 D, F, 6
 E, F, 3
 F, G, 1
+
+# Test Case 2: Two valid paths to G with slightly different costs
 7
 A, 2
 B, 3
@@ -31,6 +35,8 @@ D, E, 1
 D, F, 2
 E, G, 3
 F, G, 4
+
+# Test Case 3: G is unreachable (no edge to G)
 7
 A, 2
 B, 3
@@ -45,6 +51,8 @@ B, D, 3
 C, E, 5
 D, E, 1
 D, F, 2
+
+# Test Case 4: Direct edge from A to G
 7
 A, 2
 B, 3
@@ -54,6 +62,8 @@ E, 5
 F, 3
 G, 1
 A, G, 2
+
+# Test Case 5: Long linear path A → G (tests accumulated delays)
 7
 A, 2
 B, 3
@@ -68,6 +78,8 @@ C, D, 3
 D, E, 3
 E, F, 3
 F, G, 3
+
+# Test Case 6: Two shortest paths with same total cost
 7
 A, 2
 B, 3
@@ -83,6 +95,8 @@ C, D, 2
 D, E, 2
 E, F, 2
 F, G, 2
+
+# Test Case 7: Cycle B-C-D-E-B, shortest path still A→...→G
 7
 A, 2
 B, 3
@@ -98,6 +112,8 @@ D, E, 1
 E, B, 1
 D, F, 1
 F, G, 1
+
+# Test Case 8: G has a self-loop, ensure path ends at G
 7
 A, 2
 B, 3
@@ -113,5 +129,7 @@ D, E, 2
 E, F, 2
 F, G, 2
 G, G, 0
+
+# Test Case 9: Only one vertex A (also G), shortest path is .... Infinite ?
 1
 A, 2

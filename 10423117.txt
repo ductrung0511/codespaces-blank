@@ -2,3 +2,17 @@
 A B D F G
 13
 A B D F G
+INF
+No path
+2
+A G
+21
+A B C D E F G
+14
+A B D E F G
+10
+A B C D F G
+20
+A B C D E F G
+INF
+No path
