@@ -102,15 +102,14 @@ public:
             }
         }
 
-        // Print shortest distances from start
-        std::cout << "Shortest distances from " << start_vertex_data << ":\n";
-        for (int i = 0; i < size; ++i) {
-            std::cout << vertex_data[i] << ": ";
-            if (dist[i] == INT_MAX)
-                std::cout << "INF\n";
-            else
-                std::cout << dist[i] << "\n";
-        }
+        
+        // for (int i = 0; i < size; ++i) {
+        //     std::cout << vertex_data[i] << ": ";
+        //     if (dist[i] == INT_MAX)
+        //         std::cout << "INF\n";
+        //     else
+        //         std::cout << dist[i] << "\n";
+        // }
 
         // Find goal vertex
         int goal = get_index_by_label(end_vertex_data);
@@ -231,7 +230,10 @@ int main(int argc, char* argv[]) {
     }
 
     std::string inputFile = argv[1];
-    std::string outputFile = argv[2];
+    // std::string outputFile =  "output_" + argv[2] ;
+    std::string studentID = argv[2];
+    std::string outputFile = "output_" + studentID ;
+
 
     processGraphsFromFile(inputFile, outputFile);
     return 0;
