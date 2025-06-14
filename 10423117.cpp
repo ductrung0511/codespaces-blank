@@ -54,11 +54,7 @@ public:
     // Dijkstra’s algorithm: find shortest distances from start vertex
     void dijkstra(const std::string& start_vertex_data, const std::string& end_vertex_data, std::ostream& out){
         int start = get_index_by_label(start_vertex_data);
-        if (start == -1) {
-            std::cout << "Invalid start vertex.\n";
-            return;
-        }
-
+        
         int dist[MAX_SIZE];         // Distance from start to each vertex
         bool visited[MAX_SIZE];     // Whether shortest distance to vertex is finalized
         int parent[MAX_SIZE];       // To reconstruct the shortest path
@@ -102,14 +98,7 @@ public:
             }
         }
 
-        
-        // for (int i = 0; i < size; ++i) {
-        //     std::cout << vertex_data[i] << ": ";
-        //     if (dist[i] == INT_MAX)
-        //         std::cout << "INF\n";
-        //     else
-        //         std::cout << dist[i] << "\n";
-        // }
+    
 
         // Find goal vertex
         int goal = get_index_by_label(end_vertex_data);
@@ -232,7 +221,7 @@ int main(int argc, char* argv[]) {
     std::string inputFile = argv[1];
     // std::string outputFile =  "output_" + argv[2] ;
     std::string studentID = argv[2];
-    std::string outputFile = "output_" + studentID ;
+    std::string outputFile = "output_10423117.txt" ;
 
 
     processGraphsFromFile(inputFile, outputFile);

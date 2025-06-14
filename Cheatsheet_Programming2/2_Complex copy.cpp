@@ -9,17 +9,20 @@ private:
 public:
     Complex(): real(0), imag(0){}
     Complex(double r, double i): real(r), imag(i){}
-    double modulus() const { // Mark all member functions const if they don't modify the object.
+    double modulus() const { 
+// Mark all member functions const if they don't modify the object.
         return sqrt(pow(real,2) + pow(imag,2));
     }
-    bool operator>(const Complex& c){
-        return this->modulus() > c.modulus();
+    bool operator>(const Complex& c) const {
+        return modulus() > c.modulus();
     }
     Complex& operator=(const Complex& c){
         real = c.real;
         imag = c.imag;
         return *this;
     }
+    Complex(const Complex& c): real(c.real), imag(c.imag) {}
+    // work same way as default copy constructor
 };
 
 int main(){
@@ -30,14 +33,8 @@ int main(){
     if(c1 > c2){
         cout << "c1 is greater than c2" << endl;
     }
-    else{
-        cout << "c1 is not greater than c2" << endl;
-    }
-
-    Complex c3 = c1; // Assignment operator
-    cout << "c3.modulus(): " << c3.modulus() << endl; // Should print 5
-    cout << "------------------------" << endl;
-    cout << "Reading complex numbers" << endl;
+    
+    Complex c3 = c1; // Copy construction ? 
     double reals[10] ={
         1.0, 2.0, 3.0, 4.0, 5.0,
         6.0, 7.0, 8.0, 9.0, 10.0
@@ -51,8 +48,6 @@ int main(){
         c[i] = Complex(reals[i], imags[i]);
         cout << "c[" << i << "].modulus(): " << c[i].modulus() << endl;
     }
-
-    cout << "------------------------" << endl;
     cout << "Sorting complex numbers in decreasing order!" << endl;
 
 

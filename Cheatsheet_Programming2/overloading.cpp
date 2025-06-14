@@ -1,24 +1,17 @@
 #include <iostream>
 using namespace std;
 
-
-#include <iostream>
-using namespace std;
-
 class Aclass {
 public:
     int value;
-
-    // Constructor with parameter
     Aclass(int v) : value(v) {}
 
-    // Prefix increment: returns reference to updated object
+// Prefix increment: returns reference to updated object
     Aclass& operator++() {
         value++;
         return *this;
     }
-
-    // Postfix increment: returns a copy of the object before increment
+// Postfix increment: returns a copy of the object before increment
     Aclass operator++(int) {
         Aclass temp = *this;  // Copy before change
         operator++();         // Use prefix increment
@@ -66,12 +59,7 @@ int main() {
     Aclass a(1);
     Aclass b(2);
     Aclass c(3);
-
     cout << (a + b - c).getValue() << endl;
-
-
-
     return 0;
-
 }
 

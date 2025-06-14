@@ -35,13 +35,11 @@ public:
     }
 
     double value() const {
-        return (negative ? -1.0 : 1.0) * static_cast<double>(nominator) / denominator;
+        return  static_cast<double>(nominator) / denominator;
     }
-
     bool operator<(const Fraction& other) const {
         return this->value() < other.value();
     }
-
     bool operator==(const Fraction& other) const {
         return nominator == other.nominator && denominator == other.denominator && negative == other.negative;
     }

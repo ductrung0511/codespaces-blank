@@ -44,6 +44,7 @@ int main(){
     int arr[] = {1,4,3,2,5};
     int size = sizeof(arr) /sizeof(arr[0]);
     MergeSort(arr, 0, size -1 );
+    
     for (int i = 0; i < size; ++i)
         cout << arr[i] << " ";
     cout << endl;

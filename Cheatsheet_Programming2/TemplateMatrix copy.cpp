@@ -25,24 +25,26 @@ class Matrix {
             delete[] data;
         }
 
-        T& operator()(size_t row, size_t col) {
-            assert(row >= 0 && row < numRow); // Ensure row is within bounds
-            assert(col >= 0 && col < numCol); // Ensure index is within bounds
+        T& operator()(size_t row, size_t col) { // For write and read 
+            assert(row >= 0 && row < numRow); 
+            assert(col >= 0 && col < numCol); 
             return data[row][col];
         }
 
-        const T& operator()(size_t row, size_t col) const {
-            assert(row >= 0 && row < numRow); // Ensure row is within bounds
-            assert(col >= 0 && col < numCol); // Ensure index is within bounds
+        const T& operator()(size_t row, size_t col) const { // For read only
+            assert(row >= 0 && row < numRow); 
+            assert(col >= 0 && col < numCol); 
             return data[row][col];
         }
 
         Matrix operator+(const Matrix& other) const {
-            assert(numRow == other.numRow && numCol == other.numCol); // Ensure dimensions match
+            assert(numRow == other.numRow && numCol == other.numCol); 
+            // Ensure dimensions match
             Matrix result(numRow, numCol);
             for (size_t i = 0; i < numRow; ++i) {
                 for (size_t j = 0; j < numCol; ++j) {
-                    result(i, j) = (*this)(i, j) + other(i, j); // (*this) dereference the pointer turning it to an object
+                    result(i, j) = (*this)(i, j) + other(i, j); 
+                    // (*this) dereference the pointer turning it to an object
                 }
             }
             return result;
@@ -58,7 +60,8 @@ class Matrix {
             double sum = 0.0;
             for (size_t i = 0; i < numRow; ++i) {
                 for (size_t j = 0; j < numCol; ++j) {
-                    sum += static_cast<double>((*this)(i,j)) * static_cast<double>((*this)(i,j));
+                    sum += static_cast<double>((*this)(i,j))
+                     * static_cast<double>((*this)(i,j));
                 }
             }
             return sqrt(sum); // Return the square root of the sum of squares
@@ -70,7 +73,6 @@ class Matrix {
                 for (size_t j = 0; j < numCol; ++j) {
                     rowSum += std::abs(static_cast<double>((*this)(i, j)));
                 }
-                std::cout << "- Sum of Row " << i << ": " << rowSum << std::endl; // Debug
                 if (rowSum > maxSum) {
                     maxSum = rowSum;
                 }
